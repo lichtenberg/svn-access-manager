@@ -1,0 +1,6 @@
+projectKey=svn-access-manager
+serverUrl=https://sonar.home.tom-krieger.de
+serverVersion=6.7.0.33306
+dashboardUrl=https://sonar.home.tom-krieger.de/dashboard/index/svn-access-manager
+ceTaskId=AWPbJxF5mmvlClJZXa2V
+ceTaskUrl=https://sonar.home.tom-krieger.de/api/ce/task?id=AWPbJxF5mmvlClJZXa2V
