@@ -76,7 +76,7 @@ else {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
-    
+
     $tAccessRights = db_getAccessRights($tSeeUserid, 0, - 1, $dbh);
     $tSearchUser = "";
     $tSearchGroup = "";

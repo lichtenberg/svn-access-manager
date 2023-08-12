@@ -1248,8 +1248,9 @@ function db_getAccessRights($user_id, $start, $count, $dbh) {
     $tAccessRights = array();
     
     if ($tProjectIds != "") {
-        
-        $query = "SELECT svn_access_rights.id AS id, svnmodule, modulepath, svnrepos." . "       reponame, valid_from, valid_until, path, access_right, recursive," . "       svn_access_rights.user_id, svn_access_rights.group_id, repopath " . "  FROM " . $schema . "svn_access_rights, " . $schema . "svnprojects, " . $schema . "svnrepos " . " WHERE (svnprojects.id = svn_access_rights.project_id) " . "   AND (svnprojects.id IN (" . $tProjectIds . "))" . "   AND (svnprojects.repo_id = svnrepos.id) " . "   AND (svn_access_rights.deleted = '00000000000000') " . "ORDER BY LOWER(svnmodule) ASC ";
+
+        $query = "SELECT svn_access_rights.id AS id, svnmodule, modulepath, svnrepos." . "       reponame, valid_from, valid_until, path, access_right, `recursive`," . "       svn_access_rights.user_id, svn_access_rights.group_id, repopath " . "  FROM " . $schema . "svn_access_rights, " . $schema . "svnprojects, " . $schema . "svnrepos " . " WHERE (svnprojects.id = svn_access_rights.project_id) " . "   AND (svnprojects.id IN (" . $tProjectIds . "))" . "   AND (svnprojects.repo_id = svnrepos.id) " . "   AND (svn_access_rights.deleted = '00000000000000') " . "ORDER BY LOWER(svnmodule) ASC ";
+
         $result = db_query($query, $dbh, $count, $start);
         
         while ( $row = db_assoc($result[RESULT]) ) {
@@ -2098,7 +2099,7 @@ function db_getAccessRightsList($valid, $start, $count, $dbh) {
 
     $schema = db_determine_schema();
     $tAccessRights = array();
-    $query = "SELECT svn_access_rights.id, svnmodule, modulepath, svnrepos." . "       reponame, valid_from, valid_until, path, access_right, recursive," . "       svn_access_rights.user_id, svn_access_rights.group_id " . "  FROM " . $schema . "svn_access_rights, " . $schema . "svnprojects, " . $schema . "svnrepos " . " WHERE (svnprojects.id = svn_access_rights.project_id) " . "   AND (svnprojects.repo_id = svnrepos.id) " . "   AND (svn_access_rights.deleted = '00000000000000') " . "   AND (valid_from <= '$valid' ) " . "   AND (valid_until >= '$valid') " . "ORDER BY svnrepos.reponame, svn_access_rights.path ";
+    $query = "SELECT svn_access_rights.id, svnmodule, modulepath, svnrepos." . "       reponame, valid_from, valid_until, path, access_right, `recursive`," . "       svn_access_rights.user_id, svn_access_rights.group_id " . "  FROM " . $schema . "svn_access_rights, " . $schema . "svnprojects, " . $schema . "svnrepos " . " WHERE (svnprojects.id = svn_access_rights.project_id) " . "   AND (svnprojects.repo_id = svnrepos.id) " . "   AND (svn_access_rights.deleted = '00000000000000') " . "   AND (valid_from <= '$valid' ) " . "   AND (valid_until >= '$valid') " . "ORDER BY svnrepos.reponame, svn_access_rights.path ";
     $result = db_query($query, $dbh, $count, $start);
     
     while ( $row = db_assoc($result['result']) ) {

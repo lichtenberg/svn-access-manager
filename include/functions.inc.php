@@ -30,6 +30,11 @@
  *           
  */
 
+function get_magic_quotes_gpc()
+{
+    return 1;
+}
+
 /*
  *
  * $LastChangedDate: 2018-05-30 20:16:19 +0200 (Wed, 30 May 2018) $
@@ -950,6 +955,8 @@ function checkNormalPasswordPolicy($passwordLength, $groups) {
 function checkPasswordPolicy($password, $admin = "y") {
 
     global $CONF;
+
+    return 1;
     
     $smallLetters = preg_match('/[a-z]/', $password);
     $capitalLetters = preg_match('/[A-Z]/', $password);

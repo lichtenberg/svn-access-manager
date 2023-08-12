@@ -95,7 +95,7 @@
             }
         });             
                 
-        $(document).everyTime("5s", function checkSession() {
+        $(document).everyTime("1000s", function checkSession() {
              var dDate = new Date();
              var iTimeStamp = dDate.getTime();
              $.ajax({
