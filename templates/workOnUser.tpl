@@ -142,11 +142,11 @@
                 <select id="admin" name="fAdministrator" class="selectpicker" <?php print $tDisabledAdmin;?> data-toggle="tooltip" title="<?php print _("An administrator has more privileges as a normal user. Administrators have a stronger password policy as normal users.");?>">
                 <?php
                         if( $tAdministrator == 0 ) {
-                            print "\t\t\t\t\t<option value='0' selected>"._("no")."</option>\n";
-                            print "\t\t\t\t\t<option value='1'>"._("yes")."</option>\n";
+                            print "\t\t\t\t\t<option value='n' selected>"._("no")."</option>\n";
+                            print "\t\t\t\t\t<option value='y'>"._("yes")."</option>\n";
                         } else {
-                            print "\t\t\t\t\t<option value='0'>"._("no")."</option>\n";
-                            print "\t\t\t\t\t<option value='1' selected>"._("yes")."</option>\n";
+                            print "\t\t\t\t\t<option value='n'>"._("no")."</option>\n";
+                            print "\t\t\t\t\t<option value='y' selected>"._("yes")."</option>\n";
                         }
                     ?>
                 </select>
